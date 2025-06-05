@@ -151,7 +151,7 @@ export default function Products() {
 
   const confirmDelete = async () => {
     try {
-      const res = await fetch(`http://13.230.194.245:8080/ap/products/${deleteProductId}`, {
+      const res = await fetch(`http://13.230.194.245:8080/api/products/${deleteProductId}`, {
         method: 'DELETE',
       });
 

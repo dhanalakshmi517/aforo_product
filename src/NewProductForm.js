@@ -597,7 +597,7 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
             type="text"
             onChange={handleChange}
             value={formData.productName || ''}
-            style={{ width: '420px' ,    marginLeft: '290px',}}
+            style={{ width: '420px' ,    marginLeft: '250px',}}
             placeholder="Enter Product Name"
             required
           />
@@ -611,7 +611,7 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
             name="productType"
             onChange={handleChange}
             value={formData.productType || ''}
-            style={{ width: '420px' }}
+            style={{ width: '420px' ,    marginLeft: '250px',}}
             required
           >
             <option value="">--Select--</option>
@@ -632,7 +632,7 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
             onChange={handleChange}
             value={formData.version || ''}
             placeholder="Enter Version"
-            style={{ width: '420px' }}
+            style={{ width: '420px' ,    marginLeft: '250px',}}
             required
           />
           <div className="form-error" style={{ display: 'none' }}>Please enter a version</div>
@@ -645,7 +645,7 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
             onChange={handleChange}
             value={formData.description || ''}
             placeholder="Enter Description"
-            style={{ width: '420px' }}
+            style={{ width: '420px' ,    marginLeft: '250px',}}
             required
           />
           <div className="form-error" style={{ display: 'none' }}>Please enter a description</div>
@@ -657,7 +657,7 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
             name="category"
             onChange={handleChange}
             value={formData.category || ''}
-            style={{ width: '420px' }}
+            style={{ width: '420px' ,    marginLeft: '250px',}}
             required
           >
             <option value="">--Select--</option>
@@ -669,12 +669,12 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
         </div>
 
           <div style={{ flex: '0 0 auto' }}>
-            <label style={{ display: 'block', margin: 0, padding: 0 }}>Status</label>
+            <label style={{ display: 'block', margin: 0, padding: 0,marginLeft:'250px '}}>Status</label>
             <select
               name="status"
               onChange={handleChange}
               value={formData.status || ''}
-              style={{ width: '420px', padding: '4px 6px', marginTop: '4px' }}
+              style={{ width: '420px', padding: '4px 6px', marginTop: '4px' ,marginLeft: '250px'}}
               required
             >
               <option value="">--Select--</option>
@@ -688,7 +688,7 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
 
           <div style={{ display: 'flex', gap: '10px', marginTop: '20px' }}>
             <div style={{ flex: '0 0 420px' }}>
-              <label style={{ display: 'block', margin: 0, padding: 0 }}>Tags</label>
+              <label style={{ display: 'block', margin: 0, padding: 0,marginLeft:'250px', }}>Tags</label>
               <div style={{ display: 'flex', gap: '10px', marginBottom: '10px', marginTop: '4px' }}>
                 <input
                   type="text"
@@ -696,7 +696,7 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
                   placeholder="Key"
                   value={tagKey}
                   onChange={handleTagKeyChange}
-                  style={{ flex: 1 }}
+                  style={{ flex: 1 ,width:'345px',marginLeft: '250px'}}
                   
                 />
                           {/* <div className="form-error">Please enter a version</div> */}
@@ -718,7 +718,7 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
                   ✚
                 </button>
               </div>
-              <div style={{ maxHeight: '200px', overflowY: 'auto', border: '1px solid #ddd', borderRadius: '4px', padding: '8px' }}>
+              <div style={{ maxHeight: '200px', overflowY: 'auto', border: '1px solid #ddd', borderRadius: '4px', padding: '8px',marginLeft:'250px' }}>
                 {Object.entries(formData.tags).map(([key, value], index) => (
                   <div key={index} style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
                     <span style={{ flex: 1 }}>{key}</span>
@@ -740,7 +740,7 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
               </div>
 
               <div style={{ marginTop: '10px' }}>
-                <label style={{ display: 'block', margin: 0, padding: 0 }}>Visibility</label>
+                <label style={{ display: 'block', margin: 0, padding: 0,marginLeft:'250px' }}>Visibility</label>
                 <div className="switch-container">
                   <label className="switch">
                     <input
@@ -777,55 +777,55 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
       <form onSubmit={(e) => e.preventDefault()}>
 
         <div style={{ flex: '0 0 auto' }}>
-          <label style={{ display: 'block', margin: 0, padding: 0 }}>Internal Sku Code</label>
+          <label style={{ display: 'block', margin: 0, padding: 0,marginLeft:'250px' }}>Internal Sku Code</label>
           <input
             name="internalSkuCode"
             type="text"
             onChange={handleChange}
             value={formData.internalSkuCode || ''}
             placeholder="Enter Internal SKU Code"
-            style={{ width: '418px', padding: '4px 6px' }}
+            style={{ width: '420px', padding: '4px 6px',marginLeft:'250px' }}
             required
           />
         </div>
         <div style={{ flex: '0 0 auto' }}>
-          <label style={{ display: 'block', margin: 0, padding: 0 }}>UOM</label>
+          <label style={{ display: 'block', margin: 0, padding: 0 ,marginLeft:'250px'}}>UOM</label>
           <input
             name="uom"
             type="text"
             onChange={handleChange}
             value={formData.uom || ''}
             placeholder="Enter UOM (e.g., pcs, kg)"
-            style={{ width: '418px', padding: '4px 6px' }}
+            style={{ width: '418px', padding: '4px 6px',marginLeft:'250px' }}
           />
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginTop: '20px' }}>
           <div style={{ flex: '0 0 auto' }}>
-            <label style={{ display: 'block', margin: 0, padding: 0 }}>Effective Start Date</label>
+            <label style={{ display: 'block', margin: 0, padding: 0,marginLeft:'250px' }}>Effective Start Date</label>
             <input
               name="effectiveStartDate"
               type="date"
               onChange={handleChange}
               value={formData.effectiveStartDate ? new Date(formData.effectiveStartDate).toISOString().split('T')[0] : ''}
-              style={{ width: '418px', padding: '4px 6px' }}
+              style={{ width: '418px', padding: '4px 6px',marginLeft:'250px' }}
             />
           </div>
           <div style={{ flex: '0 0 auto' }}>
-            <label style={{ display: 'block', margin: 0, padding: 0 }}>Effective End Date</label>
+            <label style={{ display: 'block', margin: 0, padding: 0,marginLeft:'250px' }}>Effective End Date</label>
             <input
               name="effectiveEndDate"
               type="date"
               onChange={handleChange}
               value={formData.effectiveEndDate ? new Date(formData.effectiveEndDate).toISOString().split('T')[0] : ''}
-              style={{ width: '418px', padding: '4px 6px' }}
+              style={{ width: '418px', padding: '4px 6px' ,marginLeft:'250px'}}
             />
           </div>
         </div>
 
         <div style={{ display: 'flex', gap: '10px', marginTop: '20px' }}>
           <div style={{ flex: '0 0 auto' }}>
-            <label style={{ display: 'block', margin: 0, padding: 0 }}>billable</label>
+            <label style={{ display: 'block', margin: 0, padding: 0 ,marginLeft:'250px'}}>billable</label>
             <div className="switch-container">
               <label className="switch">
                 <input
@@ -842,7 +842,7 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
 
         <div style={{ display: 'flex', gap: '10px', marginTop: '20px' }}>
           <div style={{ flex: '0 0 auto' }}>
-            <label style={{ display: 'block', margin: 0, padding: 0 }}>Labels</label>
+            <label style={{ display: 'block', margin: 0, padding: 0,marginLeft:'250px' }}>Labels</label>
             <div style={{ display: 'flex', gap: '10px', marginBottom: '10px', marginTop: '4px' }}>
               <input
                 type="text"
@@ -850,7 +850,7 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
                 placeholder="Key"
                 value={labelKey}
                 onChange={handleLabelKeyChange}
-                style={{ flex: 1, maxWidth: '200px' }}
+                style={{ flex: 1, maxWidth: '200px' ,marginLeft:'250px'}}
               />
               <input
                 type="text"
@@ -869,9 +869,9 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
                 ✚
               </button>
             </div>
-            <div style={{ maxHeight: '200px', overflowY: 'auto', border: '1px solid #ddd', borderRadius: '4px', padding: '8px', maxWidth: '421px' }}>
+            <div style={{ maxHeight: '200px', overflowY: 'auto', border: '1px solid #ddd', borderRadius: '4px', padding: '8px', maxWidth: '421px',marginLeft:'250px' }}>
               {Object.entries(formData.labels).map(([key, value], index) => (
-                <div key={index} style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
+                <div key={index} style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px', }}>
                   <span style={{ flex: 1 }}>{key}</span>
                   <span style={{ flex: 1 }}>{value}</span>
                   <button
@@ -951,12 +951,12 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
             value={linkedPlansInput}
             onChange={handleChange}
             placeholder="Enter rate plan IDs (comma-separated)"
-            style={{ width: '421px', padding: '4px 6px', marginTop: '4px' }}
+            style={{ width: '421px', padding: '4px 6px', marginTop: '4px' ,marginLeft:'250px'}}
 
           />
         </div>
          <div style={{ flex: '0 0 auto' }}>
-            <label style={{ display: 'block', margin: 0, padding: 0 }}>Audit Log ID</label>
+            <label style={{ display: 'block', margin: 0, padding: 0,marginLeft:'250px' }}>Audit Log ID</label>
             <input
               name="auditLogId"
               type="text"
@@ -965,7 +965,7 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
                 setFormData({ ...formData, auditLogId: e.target.value })
               }
               value={formData.auditLogId || ''}
-              style={{ width: '421px', padding: '4px 6px', marginTop: '4px' }}
+              style={{ width: '421px', padding: '4px 6px', marginTop: '4px' ,marginLeft:'250px'}}
               required
             />
           </div> 
@@ -1002,7 +1002,7 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
           ...commonFields,
           <div key="apiFields" style={{ display: 'flex', gap: '10px', marginTop: '20px' }}>
             <div key="endpointUrlField" style={{ flex: '0 0 auto' }}>
-              <label htmlFor="endpointUrl" style={{ display: 'block', margin: 0, padding: 0 }}>Endpoint URL</label>
+              <label htmlFor="endpointUrl" style={{ display: 'block', margin: 0, padding: 0,marginLeft:'255px',color:'#1E1A20' }}>Endpoint URL</label>
               <input
                 type="text"
                 id="endpointUrl"
@@ -1010,7 +1010,7 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
                 placeholder="Enter API endpoint URL"
                 onChange={handleChange}
                 name="endpointUrl"
-                                style={{ width: '206px', padding: '4px 6px' }}
+                                style={{ width: '206px', padding: '4px 6px',marginLeft:'250px' }}
 
                 required
               />
@@ -1019,7 +1019,7 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
             </div>
 
             <div key="authTypeField" style={{ flex: '0 0 auto' }}>
-              <label htmlFor="authType" style={{ display: 'block', margin: 0, padding: 0 }}>Authentication Type</label>
+              <label htmlFor="authType" style={{ display: 'block', margin: 0, padding: 0 ,marginLeft:'0px',color:'#1E1A20'}}>Authentication Type</label>
               <select
                 id="authType"
                 value={formData.authType}
@@ -1041,16 +1041,16 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
 
           </div>,
 
-          <div key="payloadMetricField" style={{ display: 'flex', gap: '10px', marginTop: '20px' }}>
+          <div key="payloadMetricField" style={{ display: 'flex', gap: '10px', marginTop: '20px', }}>
             <div key="payloadMetricInput" style={{ flex: '0 0 auto' }}>
-              <label htmlFor="payloadMetric" style={{ display: 'block', margin: 0, padding: 0 }}>Payload Size Metric</label>
+              <label htmlFor="payloadMetric" style={{ display: 'block', margin: 0, padding: 0,marginLeft:'250px',color:'#1E1A20' }}>Payload Size Metric</label>
               <input
                 type="text"
                 id="payloadMetric"
                 name="payloadMetric"
                 value={formData.payloadMetric}
                 onChange={handleChange}
-                style={{ width: '206px', padding: '4px 6px' }}
+                style={{ width: '206px', padding: '4px 6px' ,marginLeft:'250px'}}
                 placeholder="Enter metric (e.g., BYTES, KB, MB)"
                 required
               />
@@ -1059,7 +1059,7 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
             </div>
 
             <div key="rateLimitPolicyField" style={{ flex: '0 0 auto' }}>
-              <label htmlFor="rateLimitPolicy" style={{ display: 'block', margin: 0, padding: 0 }}>Rate Limit Policy</label>
+              <label htmlFor="rateLimitPolicy" style={{ display: 'block', margin: 0, padding: 0 ,marginLeft:'0',color:'#1E1A20'}}>Rate Limit Policy</label>
               <input
                 type="text"
                 id="rateLimitPolicy"
@@ -1076,14 +1076,14 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
 
           <div key="granularityField" style={{ display: 'flex', gap: '10px', marginTop: '20px' }}>
             <div key="granularityInput" style={{ flex: '0 0 auto' }}>
-              <label htmlFor="granularity" style={{ display: 'block', margin: 0, padding: 0 }}>Metering Granularity</label>
+              <label htmlFor="granularity" style={{ display: 'block', margin: 0, padding: 0 ,marginLeft:'250px',color:'#1E1A20'}}>Metering Granularity</label>
               <input
                 type="text"
                 id="granularity"
                 name="granularity"
                 value={formData.granularity}
                 onChange={handleChange}
-                style={{ width: '206px', padding: '4px 6px' }}
+                style={{ width: '206px', padding: '4px 6px',marginLeft:'250px' }}
                 placeholder="Enter metering granularity"
                 required
               />
@@ -1091,7 +1091,7 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
             </div>
 
             <div key="groupingField" style={{ flex: '0 0 auto' }}>
-              <label htmlFor="grouping" style={{ display: 'block', margin: 0, padding: 0 }}>Grouping</label>
+              <label htmlFor="grouping" style={{ display: 'block', margin: 0, padding: 0 ,color:'#1E1A20'}}>Grouping</label>
               <input
                 type="text"
                 id="grouping"
@@ -1115,7 +1115,7 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
               onChange={handleChange}
               name="latencyClass"
               className="form-control"
-                              style={{ width: '420px', padding: '4px 6px' }}
+                              style={{ width: '420px', padding: '4px 6px',marginLeft:'250px' }}
 
               required
             >
@@ -1146,14 +1146,14 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
           ...commonFields,
           <div key="sizeField" style={{ display: 'flex', gap: '10px', marginTop: '20px' }}>
             <div key="sizeInput" style={{ flex: '0 0 auto' }}>
-              <label htmlFor="size" style={{ display: 'block', margin: 0, padding: 0 }}>Size</label>
+              <label htmlFor="size" style={{ display: 'block', margin: 0, padding: 0,marginLeft:'250px', }}>Size</label>
               <input
                 type="text"
                 id="size"
                 name="size"
                 value={formData.size}
                 onChange={handleChange}
-                style={{ width: '206px', padding: '4px 6px' }}
+                style={{ width: '206px', padding: '4px 6px',marginLeft:'250px' }}
                 placeholder="Enter file size (e.g., 10MB, 5GB)"
                 required
               />
@@ -1179,7 +1179,7 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
             </div>
           </div>,
 
-          <div key="deliveryFrequencyField" style={{ display: 'flex', gap: '10px', marginTop: '20px' }}>
+          <div key="deliveryFrequencyField" style={{ display: 'flex', gap: '10px', marginTop: '20px',marginLeft:'250px' }}>
             <div key="deliveryFrequencyInput" style={{ flex: '0 0 auto' }}>
               <label htmlFor="deliveryFrequency" style={{ display: 'block', margin: 0, padding: 0 }}>Delivery Frequency</label>
               <select
@@ -1217,7 +1217,7 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
             </div>
           </div>,
 
-          <div key="retentionPolicyField" style={{ display: 'flex', gap: '10px', marginTop: '20px' }}>
+          <div key="retentionPolicyField" style={{ display: 'flex', gap: '10px', marginTop: '20px' ,marginLeft:'250px'}}>
             <div key="retentionPolicyInput" style={{ flex: '0 0 auto' }}>
               <label htmlFor="retentionPolicy" style={{ display: 'block', margin: '0', padding: '0' }}>Retention Policy</label>
               <input
@@ -1261,7 +1261,7 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
               name="fileNamingConvention"
               value={formData.fileNamingConvention || ''}
               onChange={handleChange}
-              style={{ width: '46%' }}
+              style={{ width: '46%', padding: '4px 6px',marginLeft:'250px' }}
               placeholder="e.g., YYYYMMDD_HHMMSS"
               required
             />
@@ -1283,13 +1283,13 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
               onChange={handleChange}
               name="queryTemplate"
               placeholder="Enter SQL query template"
-                          style={{ width: '420px' }}
+                          style={{ width: '420px', padding: '4px 6px',marginLeft:'250px' }}
 
               required
             />
             <div className="form-error" style={{ display: 'none' }}>Please enter a query template</div>
           </div>,
-          <div key="dbTypeField" style={{ display: 'flex', gap: '10px', marginTop: '20px' }}>
+          <div key="dbTypeField" style={{ display: 'flex', gap: '10px', marginTop: '20px',marginLeft:'250px' }}>
             <div key="dbTypeSelect" style={{ flex: '0 0 auto' }}>
               <label htmlFor="dbType" style={{ display: 'block', margin: 0, padding: 0 }}>DB Type</label>
               <select
@@ -1326,7 +1326,7 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
             </div>
           </div>,
 
-          <div key="executionFrequencyField" style={{ display: 'flex', gap: '10px', marginTop: '20px' }}>
+          <div key="executionFrequencyField" style={{ display: 'flex', gap: '10px', marginTop: '20px',marginLeft:'250px' }}>
             <div key="executionFrequencyInput" style={{ flex: '0 0 auto' }}>
               <label htmlFor="executionFrequency" style={{ display: 'block', margin: 0, padding: 0 }}>Execution Frequency</label>
               <select
@@ -1360,7 +1360,7 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
 
           </div>,
 
-          <div key="joinComplexityField" style={{ display: 'flex', gap: '10px', marginTop: '20px' }}>
+          <div key="joinComplexityField" style={{ display: 'flex', gap: '10px', marginTop: '20px' ,marginLeft:'250px'}}>
             <div key="joinComplexityInput" style={{ flex: '0 0 auto' }}>
               <label htmlFor="joinComplexity" style={{ display: 'block', margin: 0, padding: 0 }}>Join Complexity</label>
               <select
@@ -1413,7 +1413,7 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
       case 'LLMToken':
         return [
           ...commonFields,
-          <div key="tokenProviderField" style={{ display: 'flex', gap: '10px', marginTop: '20px' }}>
+          <div key="tokenProviderField" style={{ display: 'flex', gap: '10px', marginTop: '20px' ,marginLeft:'250px'}}>
             <div key="tokenProviderInput" style={{ flex: '0 0 auto' }}>
               <label htmlFor="tokenProvider" style={{ display: 'block', margin: 0, padding: 0 }}>Token Provider</label>
               <select
@@ -1447,7 +1447,7 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
             </div>
           </div>,
 
-          <div key="tokenUnitCostField" style={{ display: 'flex', gap: '10px', marginTop: '20px' }}>
+          <div key="tokenUnitCostField" style={{ display: 'flex', gap: '10px', marginTop: '20px', marginLeft: '250px' }}>
             <div key="tokenUnitCostInput" style={{ flex: '0 0 auto' }}>
               <label htmlFor="tokenUnitCost" style={{ display: 'block', margin: 0, padding: 0 }}>Token Unit Cost</label>
               <input
@@ -1480,7 +1480,7 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
             </div>
           </div>,
 
-          <div key="quotaField" style={{ display: 'flex', gap: '10px', marginTop: '20px' }}>
+          <div key="quotaField" style={{ display: 'flex', gap: '10px', marginTop: '20px' ,marginLeft:'250px'}}>
             <div key="quotaInput" style={{ flex: '0 0 auto' }}>
               <label htmlFor="quota" style={{ display: 'block', margin: 0, padding: 0 }}>Quota</label>
               <input
@@ -1510,7 +1510,7 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
             </div>
           </div>,
 
-          <div key="inferencePriorityField" style={{ display: 'flex', gap: '10px', marginTop: '20px' }}>
+          <div key="inferencePriorityField" style={{ display: 'flex', gap: '10px', marginTop: '20px', marginLeft: '250px' }}>
             <div key="inferencePriorityInput" style={{ flex: '0 0 auto' }}>
               <label htmlFor="inferencePriority" style={{ display: 'block', margin: 0, padding: 0 }}>Inference Priority</label>
               <select

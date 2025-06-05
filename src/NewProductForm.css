@@ -432,7 +432,7 @@ input:checked + .slider:before {
 label {
   margin-bottom: 0.5rem;
   font-weight: bold;
-  margin-left: 290px;
+  margin-left: 250px;
 
 }
 
