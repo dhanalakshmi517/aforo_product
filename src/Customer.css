@@ -1,0 +1,162 @@
+.cust-customers-container {
+  padding: 20px;
+  flex: 1;
+}
+
+.cust-customers-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-left: 250px; 
+
+}
+
+.cust-customers-header h2 {
+  color: #151312;
+
+font-family: "DM Sans", sans-serif;
+font-size: 22px;
+font-style: normal;
+font-weight: 600;
+line-height: 32px; 
+margin-right: -40px;
+margin-left: 30px;
+
+
+}
+
+
+.cust-customers-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.cust-customers-search {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 280px;
+}
+
+.cust-new-customer-btn {
+  background-color: rgba(109, 136, 54, 1);
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.cust-customers-table {
+  width: 970px;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-left: 280px;
+  margin-top: -20px;
+
+}
+
+.cust-customers-table th,
+.cust-customers-table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.cust-customer-name .email {
+  font-size: 12px;
+  color: #777;
+}
+
+.cust-customer-id {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cust-copy-icon {
+  font-size: 14px;
+  cursor: pointer;
+  color: #555;
+}
+
+.cust-status {
+  background-color: #e6f0fd;
+  color: #2678d6;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  display: inline-block;
+}
+
+.cust-edit-btn,
+.cust-delete-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 6px;
+}
+
+.cust-edit-btn {
+  background-color: #e6f4ea;
+  color: #267d3e;
+}
+
+.cust-delete-btn {
+  background-color: #ffe5e5;
+  color: #c0392b;
+}
+
+
+.cust-breadcrumb {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 14px;
+  font-weight: 500;
+  padding: 6px 0;
+  margin-left: 240px;
+    margin-top: -20px;
+    background-color: #F5F4F4;
+    width: 1020px;
+
+}
+
+
+
+.cust-breadcrumb-item {
+  color: black;
+  margin-left: 20px;
+}
+
+.cust-breadcrumb-item.active {
+  font-weight: 600;
+  color:  rgba(109, 136, 54, 1);
+}
+
+.cust-separator {
+  margin: 0 6px;
+  color: black;
+}
+
+/* Optional enhancements for better layout */
+.cust-customers-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.cust-customers-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.cust-customers-search {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}

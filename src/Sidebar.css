@@ -1,0 +1,123 @@
+@import "./theme.css";
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  background-color: rgba(234, 234, 233, 1);
+  box-shadow: 2px 0 10px var(--shadow-color);
+  border-right: var(--sidebar-border);
+
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  padding: 24px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-top: 10px;
+  color: blue;
+}
+
+.sidebar-highlight {
+  position: absolute;
+  right: -179px;
+  top: -7px;
+  border-radius: 431px;
+  opacity: 0.25;
+  background: var(--secondary-color-900, #382200);
+  mix-blend-mode: plus-lighter;
+  filter: blur(77.31779479980469px);
+}
+
+
+.nav {
+  flex: 1;
+  padding: 16px 0;
+  overflow-y: auto;
+  padding: 8px 0 16px 0;
+  /* Reduced top padding from 16px to 8px */
+
+}
+
+.nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+ 
+}
+
+.nav-item {
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 5px;
+  margin-top: -10px;
+}
+
+.nav-item:hover {
+  background-color: var(--sidebar-hover-bg);
+}
+
+.nav-item.active {
+  background-color: var(--sidebar-active-bg);
+  border-radius: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.nav-item.active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 8px;
+  right: 8px;
+  background-color: var(--sidebar-active-bg);
+  border-radius: 10px;
+  z-index: -1;
+}
+
+.icon-wrapper {
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+  color: var(--sidebar-icon-color);
+}
+
+.nav-item.active .icon-wrapper {
+  color: var(--color-primary-700);
+}
+
+.tab-name {
+  
+  color: var(--grey-1000);
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-md);
+  font-style: normal;
+  font-weight: 400;
+  line-height: var(--line-height-body-md);
+  display: flex;
+  align-items: center;
+}
+
+.tab-name svg {
+  margin-left: 0.5rem;
+  width: 18px;
+  height: 19px;
+  margin-top: -10px;
+}
+
+.nav-item.active .tab-name {
+  color: var(--color-primary-700);
+}
+
+

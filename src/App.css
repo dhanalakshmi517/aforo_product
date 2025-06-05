@@ -1,0 +1,9 @@
+.content {
+  min-height: 100vh;
+  background-color: rgba(234, 234, 233, 1); 
+  margin: 0;
+  box-sizing: border-box;
+    overflow-x: hidden;
+
+}
+

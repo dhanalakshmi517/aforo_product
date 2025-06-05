@@ -1,0 +1,315 @@
+/* Container Styling */
+.price-plan-outer-container {
+  padding: 24px;
+  background: rgba(234, 234, 233, 1);
+  font-family: 'Segoe UI', sans-serif;
+  align-items: center;
+}
+
+.price-plan-container {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  padding: 32px;
+  width: 900px;
+  margin: auto;
+  margin-left: -50px;
+  /* height: 900px; */
+}
+
+/* Header */
+.price-plan-outer-container h2 {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  color: #151312;
+  font-family: "DM Sans", sans-serif;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 32px;
+  /* 145.455% */
+  margin-left: -40px;
+
+}
+
+/* Tabs */
+.price-plan-tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+  gap: 30px;
+  width: 100%;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.price-plan-tab {
+  padding: 12px 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #151312;
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+  text-align: center;
+  flex: 1;
+  min-width: 150px;
+}
+
+.price-plan-tab-active {
+  color: rgba(109, 136, 54, 1);
+}
+
+.price-plan-form-section {
+  width: 100%;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.price-plan-form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.price-plan-form-group label {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(37, 33, 31, 1);
+  margin-bottom: 10px;
+  margin-top: -10px;
+  text-align: left;
+}
+
+.price-plan-form-group input,
+.price-plan-form-group textarea,
+.price-plan-form-group select {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: rgba(245, 244, 244, 1);
+  margin: 0;
+}
+
+/* Tier Rows */
+.price-plan-tiered-container,
+.price-plan-volume-container {
+  width: 100%;
+  margin-top: 20px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+}
+
+.price-plan-tier-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 15px;
+  align-items: center;
+  width: 20%;
+  background: rgba(245, 244, 244, 1);
+  padding: 1px;
+  border-radius: 6px;
+}
+
+.price-plan-tier-row input {
+  flex: 1;
+  padding: 8px;
+  border-radius: 6px;
+  background: white;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  color: rgba(37, 33, 31, 1);
+  width: 30%;
+  min-width: 100px;
+}
+
+.price-plan-tier-row input[type="number"] {
+  width: 30%;
+  min-width: 80px;
+  text-align: center;
+}
+
+/* Delete Button Styles */
+.price-plan-delete-btn {
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 5px;
+  color: #dc3545;
+  transition: color 0.2s ease;
+}
+
+.price-plan-delete-btn:hover {
+  color: #c82333;
+}
+
+.price-plan-delete-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Add Tier Button Styles */
+.price-plan-add-tier-btn {
+  color: var(--color-primary-800);
+  background: rgba(245, 244, 244, 1);
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 14px;
+  width: 100%;
+  border: 1px solid rgba(245, 244, 244, 1);
+  padding: 10px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.price-plan-add-tier-btn:hover {
+  background: #f8f9fa;
+  color: #495057;
+}
+
+/* Pricing Model Details Container */
+.price-plan-model-details {
+  border: 1px solid #ddd;
+  width: 47%;
+  padding: 20px;
+  border-radius: 8px;
+  background: white;
+  margin: 16px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.price-plan-model-details p {
+  margin: 0 0 16px 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.price-plan-model-details .price-plan-tier-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.price-plan-model-details input {
+  width: 100%;
+  max-width: 250px;
+}
+
+/* Flat Rate Specific Styles */
+.flat-recurring-fee-select,
+.flat-billing-frequency-select,
+.flat-currency-select {
+  width: 45%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: rgba(245, 244, 244, 1);
+  color: rgba(37, 33, 31, 1);
+  outline: none;
+  transition: border-color 0.2s ease;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23666'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px;
+}
+
+/* Actions (Bottom Buttons) */
+.price-plan-review-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.price-plan-cancel-button,
+.price-plan-next-button {
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.price-plan-cancel-button {
+  background: #e0e0e0;
+  color: #333;
+}
+
+.price-plan-next-button {
+  background: #7b9d3d;
+  color: white;
+}
+
+.price-plan-model-details {
+  width: 40%;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 15px;
+  display: grid;
+  gap: 16px;
+}
+
+.price-plan-form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.price-plan-form-group label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+/* Responsive Support */
+@media (max-width: 768px) {
+  .price-plan-tier-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .price-plan-tier-row input {
+    width: 100%;
+  }
+  
+  .price-plan-delete-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .price-plan-container {
+    padding: 16px;
+  }
+
+  .price-plan-tier-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

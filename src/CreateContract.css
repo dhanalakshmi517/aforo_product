@@ -1,0 +1,99 @@
+:root {
+  --text-text-darkest: #151312;
+  --type-font-family-primary: "DM Sans", sans-serif;
+  --fontsize-heading-h4: 22px;
+  --line-height-heading-h4: 32px;
+}
+
+.container {
+  width: 70%;
+  margin: 30px auto;
+  background: #f9f9f9;
+  padding: 20px 30px;
+  border-radius: 10px;
+  font-family: sans-serif;
+  margin-left: 300px;
+  margin-bottom: -10px;
+}
+
+
+
+
+h4 {
+  margin-bottom: -30px;
+    margin-left: 300px;
+    margin-top: -40px;
+    color: #151312;
+  font-family: "DM Sans", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 32px; /* 145.455% */
+
+
+}
+
+.section {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+}
+
+.section h6 {
+  margin-bottom: 20px;
+  font-weight: 600;
+  margin-top: -10px;
+  font-size: 16px;
+    font-family: "DM Sans", sans-serif;
+
+}
+
+.form-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.form-group {
+  flex: 1 1 45%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group.full-width {
+  flex: 1 1 100%;
+}
+
+label {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+input, select, textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.add-product-btn {
+  background-color: #6D8836;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.add-product-btn:hover {
+  background-color: #6D8836;
+}
