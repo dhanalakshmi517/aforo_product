@@ -427,7 +427,7 @@
 }
 
 .copied-text {
-  color: #6D8836;
+  color: var(--color-primary-700);
   font-size: 12px;
   margin-left: 4px;
   animation: fadeOut 2s ease-in-out;
@@ -445,7 +445,7 @@
 }
 
 .copy-icon:hover {
-  color: #6D8836;
+  color:  var(--color-primary-700);
 }
 
 .search-input {
@@ -851,6 +851,8 @@ line-height: var(--line-height-heading-h5); /* 140% */
   cursor: pointer;
   transition: all 0.2s ease;
 }
+
+
 
 .delete-modal-cancel {
   background-color: #3085d6;

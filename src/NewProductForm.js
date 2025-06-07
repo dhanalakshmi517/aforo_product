@@ -1,6 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import './NewProductForm.css';
-import Swal from 'sweetalert2';
 
 const productTypes = [
   { value: 'API', label: 'API', key: 'API' },
@@ -134,20 +133,20 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
           } else {
             newProgress[section] = 100;
           }
-        } else {
-          // Calculate progress based on filled fields
+        } else if (section === 'config') {
+          // Calculate config progress based on selected product type
           const requiredFields = {
-            general: ['productName', 'productType', 'version', 'description', 'category', 'status'],
-            metadata: ['internalSkuCode', 'uom', 'effectiveStartDate', 'effectiveEndDate', 'billable'],
-            config: ['EndpointUrl', 'size', 'format', 'compressionFormat', 'deliveryFrequency', 'accessMethod', 'retentionPolicy',
-                     'fileNamingConvention', 'tokenProvider', 'modelName', 'tokenUnitCost', 'calculationMethod',
-                     'quota', 'promptTemplate', 'inferencePriority', 'computeTier']
+            API: ['endpointUrl', 'authType', 'payloadMetric', 'rateLimitPolicy', 'granularity', 'grouping', 'latencyClass', 'caching'],
+            FlatFile: ['size', 'format', 'deliveryFrequency', 'accessMethod'],
+            LLMToken: ['tokenProvider', 'modelName', 'tokenUnitCost'],
+            SQLResult: ['queryTemplate', 'dbType', 'freshness', 'executionFrequency']
           };
           
-          const fields = requiredFields[section];
+          const productType = formData.productType;
+          const fields = requiredFields[productType] || [];
           const filledFields = fields.filter(field => formData[field] !== undefined && formData[field] !== '');
           
-          // For current section, show progress based on filled fields
+          // Calculate progress only for the relevant fields of the selected product type
           if (step === sections.indexOf(section)) {
             newProgress[section] = Math.round((filledFields.length / fields.length) * 100);
           } else {
@@ -156,6 +155,25 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
               newProgress[section] = Math.round((filledFields.length / fields.length) * 100);
             } else {
               // For future sections, show 0%
+              newProgress[section] = 0;
+            }
+          }
+        } else {
+          // General and metadata sections remain the same
+          const requiredFields = {
+            general: ['productName', 'productType', 'version', 'description', 'category', 'status'],
+            metadata: ['internalSkuCode', 'uom', 'effectiveStartDate', 'effectiveEndDate', 'billable']
+          };
+          
+          const fields = requiredFields[section];
+          const filledFields = fields.filter(field => formData[field] !== undefined && formData[field] !== '');
+          
+          if (step === sections.indexOf(section)) {
+            newProgress[section] = Math.round((filledFields.length / fields.length) * 100);
+          } else {
+            if (step > sections.indexOf(section)) {
+              newProgress[section] = Math.round((filledFields.length / fields.length) * 100);
+            } else {
               newProgress[section] = 0;
             }
           }
@@ -224,8 +242,12 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
             status: formData.status,
             internalSkuCode: formData.internalSkuCode,
             uom: formData.uom,
-            effectiveStartDate: formData.effectiveStartDate,
-            effectiveEndDate: formData.effectiveEndDate,
+            effectiveStartDate: formData.effectiveStartDate ? 
+              new Date(formData.effectiveStartDate).toISOString() : 
+              new Date().toISOString(),
+            effectiveEndDate: formData.effectiveEndDate ? 
+              new Date(formData.effectiveEndDate).toISOString() : 
+              new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString(),
             billable: formData.billable,
             auditLogId: formData.auditLogId,
             isReviewed: formData.isReviewed,
@@ -246,13 +268,6 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
         // Store the productId for later use
         setFormData(prev => ({ ...prev, productId: createResult.productId }));
         
-        // Show success message
-        Swal.fire({
-          icon: 'success',
-          title: 'Success!',
-          text: 'Product created successfully'
-        });
-
         // Move to configuration step
         setStep(2);
         return;
@@ -375,24 +390,12 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
             }
           }
 
-          // Show success message
-          Swal.fire({
-            icon: 'success',
-            title: 'Success!',
-            text: `Product configuration created successfully for ${formData.productType} product`
-          });
-
           // Update form state
           onProductCreated(formData.productId);
         }
       }
     } catch (error) {
       console.error('Error:', error);
-      Swal.fire({
-        icon: 'error',
-        title: 'Error',
-        text: error.message
-      });
     }
   };
 
@@ -423,15 +426,25 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
   const prepareDatesForBackend = (data) => {
     if (data.effectiveStartDate) {
       const date = new Date(data.effectiveStartDate);
-      const now = new Date();
-      date.setHours(now.getHours(), now.getMinutes(), now.getSeconds(), now.getMilliseconds());
-      data.effectiveStartDate = date.toISOString();
+      // Format in 24-hour format
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const day = String(date.getDate()).padStart(2, '0');
+      const hours = String(date.getHours()).padStart(2, '0');
+      const minutes = String(date.getMinutes()).padStart(2, '0');
+      const seconds = String(date.getSeconds()).padStart(2, '0');
+      data.effectiveStartDate = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}.000Z`;
     }
     if (data.effectiveEndDate) {
       const date = new Date(data.effectiveEndDate);
-      const now = new Date();
-      date.setHours(now.getHours(), now.getMinutes(), now.getSeconds(), now.getMilliseconds());
-      data.effectiveEndDate = date.toISOString();
+      // Format in 24-hour format
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const day = String(date.getDate()).padStart(2, '0');
+      const hours = String(date.getHours()).padStart(2, '0');
+      const minutes = String(date.getMinutes()).padStart(2, '0');
+      const seconds = String(date.getSeconds()).padStart(2, '0');
+      data.effectiveEndDate = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}.000Z`;
     }
     return data;
   };
@@ -484,7 +497,7 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
     }));
   };
 
-  const handleChange = (e) => {
+ const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     let newValue = type === 'checkbox' ? checked : value;
 
@@ -493,16 +506,31 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
       return;
     }
 
-    // Handle date inputs specifically
-    if ((name === 'effectiveStartDate' || name === 'effectiveEndDate') && value) {
-      // When setting the value from state (display format)
-      if (value.includes('T')) {
-        newValue = new Date(value).toISOString().split('T')[0]; // Convert ISO to yyyy-MM-dd
-      } else {
-        // When getting value from input (HTML5 date format)
-        const date = new Date(value);
-        newValue = date.toISOString(); // Convert yyyy-MM-dd to ISO
-      }
+    // Handle datetime inputs specifically
+    if (name === 'effectiveStartDate' || name === 'effectiveEndDate') {
+      // When getting value from input (HTML5 datetime-local format)
+      // The input value is already in YYYY-MM-DDTHH:mm format
+      newValue = value;
+    }
+
+    // Update form data
+    setFormData({ ...formData, [name]: newValue });
+
+    // If it's a date field, prepare it for backend submission
+    if (name === 'effectiveStartDate' || name === 'effectiveEndDate') {
+      const date = new Date(value);
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const day = String(date.getDate()).padStart(2, '0');
+      const hours = String(date.getHours()).padStart(2, '0');
+      const minutes = String(date.getMinutes()).padStart(2, '0');
+      const seconds = String(date.getSeconds()).padStart(2, '0');
+      
+      // Store the formatted date in a separate field for backend submission
+      setFormData(prev => ({
+        ...prev,
+        [`${name}ForBackend`]: `${year}-${month}-${day}T${hours}:${minutes}:${seconds}.000Z`
+      }));
     }
 
     if (name === 'tags') {
@@ -545,7 +573,7 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
     // Check if we've reached the maximum number of tags
     const currentTags = Object.keys(formData.tags || {});
     if (currentTags.length >= 3) {
-      Swal.fire('Warning', 'Maximum 3 tags allowed', 'warning');
+      console.log('Maximum 3 tags allowed');
       return;
     }
 
@@ -761,7 +789,7 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
           <button type="button" className="custom-button cancel-button" onClick={onCancel}>
            <h6> Cancel</h6>
           </button>
-          <button type="button" className="custom-button next-button" onClick={handleNext}>
+          <button type="button" className="custom-button aforo-button" onClick={handleNext}>
             <h6>Next</h6>
           </button>
         </div>
@@ -802,30 +830,32 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginTop: '20px' }}>
           <div style={{ flex: '0 0 auto' }}>
-            <label style={{ display: 'block', margin: 0, padding: 0,marginLeft:'250px' }}>Effective Start Date</label>
-            <input
-              name="effectiveStartDate"
-              type="date"
-              onChange={handleChange}
-              value={formData.effectiveStartDate ? new Date(formData.effectiveStartDate).toISOString().split('T')[0] : ''}
-              style={{ width: '418px', padding: '4px 6px',marginLeft:'250px' }}
-            />
+            <label htmlFor="effectiveStartDate" style={{ display: 'block', margin: 0, padding: 0,marginLeft:'250px',color:'#1E1A20'}}>Effective Start Date</label>
+              <input
+                type="datetime-local"
+                id="effectiveStartDate"
+                name="effectiveStartDate"
+                value={formData.effectiveStartDate}
+                onChange={handleChange}
+                style={{ width: '420px', padding: '4px 6px', marginLeft: '250px' }}
+              />
           </div>
           <div style={{ flex: '0 0 auto' }}>
-            <label style={{ display: 'block', margin: 0, padding: 0,marginLeft:'250px' }}>Effective End Date</label>
-            <input
-              name="effectiveEndDate"
-              type="date"
-              onChange={handleChange}
-              value={formData.effectiveEndDate ? new Date(formData.effectiveEndDate).toISOString().split('T')[0] : ''}
-              style={{ width: '418px', padding: '4px 6px' ,marginLeft:'250px'}}
-            />
+            <label htmlFor="effectiveEndDate" style={{ display: 'block', margin: 0, padding: 0,marginLeft:'250px',color:'#1E1A20'}}>Effective End Date</label>
+              <input
+                type="datetime-local"
+                id="effectiveEndDate"
+                name="effectiveEndDate" // Changed from effectiveStartDate to effectiveEndDate
+                value={formData.effectiveEndDate}
+                onChange={handleChange}
+                style={{ width: '420px', padding: '4px 6px', marginLeft: '250px' }}
+              />
           </div>
         </div>
 
         <div style={{ display: 'flex', gap: '10px', marginTop: '20px' }}>
           <div style={{ flex: '0 0 auto' }}>
-            <label style={{ display: 'block', margin: 0, padding: 0 ,marginLeft:'250px'}}>billable</label>
+            <label style={{ display: 'block', margin: 0, padding: 0,marginLeft:'250px'}}>billable</label>
             <div className="switch-container">
               <label className="switch">
                 <input
@@ -974,15 +1004,15 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
            <h6> Back</h6>
           </button>
           {step === 1 ? (
-            <button type="button" className="custom-button next-button" onClick={handleSubmit}>
+            <button type="button" className="custom-button aforo-button" onClick={handleSubmit}>
              <h6>Next</h6> 
             </button>
           ) : step === 2 ? (
-            <button type="button" className="custom-button next-button" onClick={handleNext}>
+            <button type="button" className="custom-button aforo-button" onClick={handleNext}>
               <h6>Next</h6>
             </button>
           ) : (
-            <button type="button" className="custom-button next-button" onClick={handleSubmit}>
+            <button type="button" className="custom-button aforo-button" onClick={handleSubmit}>
               <h6>Submit</h6>
             </button>
           )}
@@ -1006,8 +1036,8 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
               <input
                 type="text"
                 id="endpointUrl"
+                name="endpointUrl"
                 value={formData.endpointUrl}
-                placeholder="Enter API endpoint URL"
                 onChange={handleChange}
                 name="endpointUrl"
                                 style={{ width: '206px', padding: '4px 6px',marginLeft:'250px' }}
@@ -1022,6 +1052,7 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
               <label htmlFor="authType" style={{ display: 'block', margin: 0, padding: 0 ,marginLeft:'0px',color:'#1E1A20'}}>Authentication Type</label>
               <select
                 id="authType"
+                name="authType"
                 value={formData.authType}
                 onChange={handleChange}
                 name="authType"
@@ -1059,7 +1090,7 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
             </div>
 
             <div key="rateLimitPolicyField" style={{ flex: '0 0 auto' }}>
-              <label htmlFor="rateLimitPolicy" style={{ display: 'block', margin: 0, padding: 0 ,marginLeft:'0',color:'#1E1A20'}}>Rate Limit Policy</label>
+              <label htmlFor="rateLimitPolicy" style={{ display: 'block', margin: 0, padding: '0' }}>Rate Limit Policy</label>
               <input
                 type="text"
                 id="rateLimitPolicy"
@@ -1076,7 +1107,7 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
 
           <div key="granularityField" style={{ display: 'flex', gap: '10px', marginTop: '20px' }}>
             <div key="granularityInput" style={{ flex: '0 0 auto' }}>
-              <label htmlFor="granularity" style={{ display: 'block', margin: 0, padding: 0 ,marginLeft:'250px',color:'#1E1A20'}}>Metering Granularity</label>
+              <label htmlFor="granularity" style={{ display: 'block', margin: 0, padding: 0,marginLeft:'250px',color:'#1E1A20'}}>Metering Granularity</label>
               <input
                 type="text"
                 id="granularity"
@@ -1289,7 +1320,7 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
             />
             <div className="form-error" style={{ display: 'none' }}>Please enter a query template</div>
           </div>,
-          <div key="dbTypeField" style={{ display: 'flex', gap: '10px', marginTop: '20px',marginLeft:'250px' }}>
+          <div key="dbTypeField" style={{ display: 'flex', gap: '10px', marginTop: '20px' ,marginLeft:'250px'}}>
             <div key="dbTypeSelect" style={{ flex: '0 0 auto' }}>
               <label htmlFor="dbType" style={{ display: 'block', margin: 0, padding: 0 }}>DB Type</label>
               <select
@@ -1561,7 +1592,7 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
           <button type="button" className="custom-button cancel-button" onClick={handleBack}>
            <h6> Back</h6>
           </button>
-          <button type="button" className="custom-button next-button" onClick={handleNext}>
+          <button type="button" className="custom-button aforo-button" onClick={handleNext}>
             <h6>Next</h6>
           </button>
         </div>
@@ -1691,7 +1722,7 @@ export default function NewProductForm({ onCancel, onProductCreated, initialData
             </button>
             <button
               type="submit"
-              className="custom-button next-button"
+              className="custom-button aforo-button"
               onClick={handleSubmit}
             >
              <h6> Submit</h6>

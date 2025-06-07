@@ -31,15 +31,21 @@ function PlanDetails({ onPricingModelSelect }) {
   return (
     <div className="price-plan-details-section">
       <div className="price-plan-form-group">
-        <label>Rate Plan Name</label>
-        <input type="text" placeholder="Google Maps API" className="rate-plan-name-input" />
+        <label style={{ display: 'block', margin: 0, padding: 0,marginLeft:'200px '}}>Rate Plan Name</label>
+        <input type="text"
+         placeholder="Google Maps API" 
+                         style={{ flex: 1, maxWidth: '400px' ,marginLeft:'200px'}}
+
+         className="rate-plan-name-input" />
       </div>
       <div className="price-plan-form-group">
-        <label>Select Product Name</label>
+        <label style={{ display: 'block', margin: 0, padding: 0,marginLeft:'200px '}}>Select Product Name</label>
         <select 
           className="product-select" 
           value={selectedProduct}
           onChange={(e) => setSelectedProduct(e.target.value)}
+                          style={{ flex: 1, maxWidth: '420px' ,marginLeft:'200px'}}
+
         >
           <option value="">--Select--</option>
           {products.map((product) => (
@@ -50,24 +56,30 @@ function PlanDetails({ onPricingModelSelect }) {
         </select>
       </div>
       <div className='price-plan-form-group'>
-        <label>Description</label>
-        <textarea placeholder="Enter description here" className="description-textarea"></textarea>
+        <label style={{ display: 'block', margin: 0, padding: 0,marginLeft:'200px '}}>Description</label>
+        <textarea placeholder="Enter description here" className="description-textarea"
+                        style={{ flex: 1, maxWidth: '400px' ,marginLeft:'200px'}}
+></textarea>
       </div>
       <div className="price-plan-form-group">
-        <label>Status</label>
-        <select className="status-select">
+        <label style={{ display: 'block', margin: 0, padding: 0,marginLeft:'200px '}}>Status</label>
+        <select className="status-select"                 style={{ flex: 1, maxWidth: '420px' ,marginLeft:'200px'}}
+>
           <option value="">--Select--</option>
           <option value="active">Active</option>
           <option value="inactive">Inactive</option>
           <option value="archived">Archived</option>
+
         </select>
       </div>
       <div className="price-plan-form-group">
-        <label>Pricing Model</label>
+        <label  style={{ display: 'block', margin: 0, padding: 0,marginLeft:'200px '}}>Pricing Model</label>
         <select 
           className="pricing-model-select"
           value={pricingModel}
           onChange={handlePricingModelChange}
+                          style={{ flex: 1, maxWidth: '420px' ,marginLeft:'200px'}}
+
         >
           <option value="">--Select--</option>
           <option value="flat-rate">Flat Fee</option>

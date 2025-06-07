@@ -38,11 +38,11 @@ export default function Extras() {
         {renderHeader('Setup Fee', 'setupFee')}
         {activeSections.includes('setupFee') && (
           <div className="section-content">
-            <label>Enter one-time Setup Fee <span className="optional">(optional)</span></label>
+            <label style={{ display: 'block', margin: 0, padding: 0,marginLeft:'5px '}}>Enter one-time Setup Fee <span className="optional">(optional)</span></label>
             <input type="text" value="$22" />
-            <label>Application Timing</label>
+            <label  style={{ display: 'block', margin: 0, padding: 0,marginLeft:'5px '}}>Application Timing</label>
             <input type="text" value="$22" />
-            <label>Invoice Description</label>
+            <label  style={{ display: 'block', margin: 0, padding: 0,marginLeft:'5px '}}>Invoice Description</label>
             <textarea placeholder="Invoice Description"></textarea>
           </div>
         )}
@@ -53,11 +53,11 @@ export default function Extras() {
         {renderHeader('Overage Charges', 'overageCharges')}
         {activeSections.includes('overageCharges') && (
           <div className="section-content">
-            <label>Usage Amount</label>
+            <label  style={{ display: 'block', margin: 0, padding: 0,marginLeft:'5px '}}>Usage Amount</label>
             <input type="text" placeholder="Placeholder" />
-            <label>Overage unit rate</label>
+            <label  style={{ display: 'block', margin: 0, padding: 0,marginLeft:'5px '}}>Overage unit rate</label>
             <input type="text" placeholder="Placeholder" />
-            <label>Grace buffer <span className="optional">(optional)</span></label>
+            <label  style={{ display: 'block', margin: 0, padding: 0,marginLeft:'5px '}}>Grace buffer <span className="optional">(optional)</span></label>
             <input type="text" placeholder="Placeholder" />
           </div>
         )}
@@ -68,18 +68,18 @@ export default function Extras() {
         {renderHeader('Discounts & Promotions', 'discounts')}
         {activeSections.includes('discounts') && (
           <div className="section-content">
-            <label>Discount Type</label>
+            <label  style={{ display: 'block', margin: 0, padding: 0,marginLeft:'5px '}}>Discount Type</label>
             <select><option>Placeholder</option></select>
-            <label>Eligibility</label>
+            <label  style={{ display: 'block', margin: 0, padding: 0,marginLeft:'5px '}}>Eligibility</label>
             <select><option>Placeholder</option></select>
-            <label>Validity Period</label>
+            <label  style={{ display: 'block', margin: 0, padding: 0,marginLeft:'5px '}}>Validity Period</label>
             <div className="date-range">
   <div className="date-input">
-    <label>Start Date</label>
+    <label  style={{ display: 'block', margin: 0, padding: 0,marginLeft:'5px '}}>Start Date</label>
     <input type="date" />
   </div>
   <div className="date-input">
-    <label>End Date</label>
+    <label  style={{ display: 'block', margin: 0, padding: 0,marginLeft:'5px '}}>End Date</label>
     <input type="date" />
   </div>
 </div>
@@ -93,16 +93,16 @@ export default function Extras() {
         {renderHeader('Freemium Setup', 'freemium')}
         {activeSections.includes('freemium') && (
           <div className="section-content">
-            <label>Freemium Type</label>
+            <label  style={{ display: 'block', margin: 0, padding: 0,marginLeft:'5px '}}>Freemium Type</label>
             <select><option>Placeholder</option></select>
-            <label>Validity Period</label>
+            <label  style={{ display: 'block', margin: 0, padding: 0,marginLeft:'5px '}}>Validity Period</label>
             <div className="date-range">
   <div className="date-input">
-    <label>Start Date</label>
+    <label  style={{ display: 'block', margin: 0, padding: 0,marginLeft:'5px '}}>Start Date</label>
     <input type="date" />
   </div>
   <div className="date-input">
-    <label>End Date</label>
+    <label  style={{ display: 'block', margin: 0, padding: 0,marginLeft:'5px '}}>End Date</label>
     <input type="date" />
   </div>
 </div>
@@ -115,9 +115,9 @@ export default function Extras() {
         {renderHeader('Minimum Commitment', 'commitment')}
         {activeSections.includes('commitment') && (
           <div className="section-content">
-            <label>Minimum Usage</label>
+            <label  style={{ display: 'block', margin: 0, padding: 0,marginLeft:'5px '}}>Minimum Usage</label>
             <input type="text" placeholder="Placeholder" />
-            <label>Minimum Charge</label>
+            <label  style={{ display: 'block', margin: 0, padding: 0,marginLeft:'5px '}}>Minimum Charge</label>
             <input type="text" placeholder="Placeholder" />
           </div>
         )}
@@ -128,16 +128,16 @@ export default function Extras() {
         {renderHeader('Reset Period', 'resetPeriod')}
         {activeSections.includes('resetPeriod') && (
          <div className="section-content">
-            <label>Reset Frequency</label>
+            <label  style={{ display: 'block', margin: 0, padding: 0,marginLeft:'5px '}}>Reset Frequency</label>
             <select><option>Placeholder</option></select>
-            <label>Validity Period</label>
+            <label  style={{ display: 'block', margin: 0, padding: 0,marginLeft:'5px '}}>Validity Period</label>
             <div className="date-range">
   <div className="date-input">
-    <label>Start Date</label>
+    <label  style={{ display: 'block', margin: 0, padding: 0,marginLeft:'5px '}}>Start Date</label>
     <input type="date" />
   </div>
   <div className="date-input">
-    <label>End Date</label>
+    <label  style={{ display: 'block', margin: 0, padding: 0,marginLeft:'5px '}}>End Date</label>
     <input type="date" />
   </div>
 </div>

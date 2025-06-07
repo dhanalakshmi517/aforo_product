@@ -251,7 +251,7 @@ line-height: var(--line-height-heading-h6, 24px); /* 133.333% */
 
 }
 
-.next-button {
+.aforo-button {
   color: var(--color-neutral-white);
 
 /* heading/regular/h6 */
@@ -262,6 +262,7 @@ font-weight: 400;
 line-height: var(--line-height-heading-h6, 24px); /* 133.333% */
 background-color:  var(--color-primary-600);
 border-radius: var(--border-radius-sm, 8px);
+text-align: center;
 }
 
 .button-groups {
@@ -302,7 +303,7 @@ line-height: var(--line-height-heading-h6, 24px); /* 133.333% */
 
 
 
-.next-button {
+.aforo-button {
   color: var(--color-neutral-white);
 
 /* heading/regular/h6 */
@@ -313,6 +314,7 @@ font-weight: 400;
 line-height: var(--line-height-heading-h6, 24px); /* 133.333% */
 background-color:  var(--color-primary-600);
 border-radius: var(--border-radius-sm, 8px);
+  text-align: center;
 }
 
 
@@ -556,8 +558,7 @@ line-height: var(--line-height-heading-h6, 24px); /* 133.333% */
 .cancel-button:hover:not(:disabled) {
   background-color: rgba(225, 240, 230, 1);
 }
-
-.next-button {
+.aforo-button {
   color: var(--color-neutral-white);
 
 /* heading/regular/h6 */
@@ -568,6 +569,7 @@ font-weight: 400;
 line-height: var(--line-height-heading-h6, 24px); /* 133.333% */
 background-color:  var(--color-primary-600);
 border-radius: var(--border-radius-sm, 8px);
+  
 
 }
 

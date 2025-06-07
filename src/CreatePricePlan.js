@@ -167,15 +167,16 @@ function CreatePricePlan() {
           )}
           {activeTab === 'pricing' && (
             <div className="price-plan-pricing-section">
-              <div className="price-plan-model-details">
+              {/* <div className="price-plan-model-details"> */}
                 {selectedPricingModel === 'flat-rate' && (
                   <div>
                     <div className="price-plan-form-group">
-                      <label>Recurring Fee</label>
+                      <label  style={{ display: 'block', margin: 0, padding: 0,marginLeft:'210px '}}>Recurring Fee</label>
                       <select
                         value={pricingFormData.flat.recurringFee}
                         onChange={(e) => handleFlatDetailsChange('recurringFee', e.target.value)}
                         className="flat-recurring-fee-select"
+                        style={{ flex: 1, maxWidth: '410px', marginLeft: '210px' }}
                       >
                         <option>--Select--</option>
                         <option value="10">10</option>
@@ -184,11 +185,12 @@ function CreatePricePlan() {
                     </div>
 
                     <div className="price-plan-form-group">
-                      <label>Billing Frequency</label>
+                      <label  style={{ display: 'block', margin: 0, padding: 0,marginLeft:'210px '}}>Billing Frequency</label>
                       <select
                         value={pricingFormData.flat.billingFrequency}
                         onChange={(e) => handleFlatDetailsChange('billingFrequency', e.target.value)}
                         className="flat-billing-frequency-select"
+                        style={{ flex: 1, maxWidth: '410px', marginLeft: '210px' }}
                       >
                         <option>--Select--</option>
                         <option value="monthly">Monthly</option>
@@ -197,11 +199,12 @@ function CreatePricePlan() {
                     </div>
 
                     <div className="price-plan-form-group">
-                      <label>Currency</label>
+                      <label  style={{ display: 'block', margin: 0, padding: 0,marginLeft:'210px '}}>Currency</label>
                       <select
                         value={pricingFormData.flat.currency}
                         onChange={(e) => handleFlatDetailsChange('currency', e.target.value)}
                         className="flat-currency-select"
+                        style={{ flex: 1, maxWidth: '410px', marginLeft: '210px' }}
                       >
                         <option>--Select--</option>
                         <option value="USD">USD</option>
@@ -210,61 +213,23 @@ function CreatePricePlan() {
                     </div>
                   </div>
                 )}
-                {selectedPricingModel === 'stairstep' && (
-                  <div className="price-plan-tiered-container">
-                    <div className="price-plan-form-group">
-                      <label>Stair Step Pricing</label>
-                      {pricingFormData.stairstep.tiers.map((tier, index) => (
-                        <div key={index} className="price-plan-tier-row">
-                          <input
-                            type="number"
-                            value={tier.start}
-                            onChange={(e) => handleTierChange('stairstep', index, 'start', e.target.value)}
-                            placeholder="Start"
-                          />
-                          <input
-                            type="number"
-                            value={tier.end}
-                            onChange={(e) => handleTierChange('stairstep', index, 'end', e.target.value)}
-                            placeholder="End"
-                          />
-                          <input
-                            type="number"
-                            value={tier.cost}
-                            onChange={(e) => handleTierChange('stairstep', index, 'cost', e.target.value)}
-                            placeholder="Cost"
-                          />
-                          <button
-                            onClick={() => handleRemoveTier('stairstep', index)}
-                            className="price-plan-delete-btn"
-                          >
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                              <path d="M2 3.99992H14M12.6667 3.99992V13.3333C12.6667 13.9999 12 14.6666 11.3333 14.6666H4.66667C4 14.6666 3.33333 13.9999 3.33333 13.3333V3.99992M5.33333 3.99992V2.66659C5.33333 1.99992 6 1.33325 6.66667 1.33325H9.33333C10 1.33325 10.6667 1.99992 10.6667 2.66659V3.99992M6.66667 7.33325V11.3333M9.33333 7.33325V11.3333" stroke="#E34935" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                          </button>
-                        </div>
-                      ))}
-                      <button
-                        onClick={() => handleAddTier('stairstep')}
-                        className="price-plan-add-tier-btn"
-                      >
-                        + Add Tier
-                      </button>
+               {selectedPricingModel === 'stairstep' && (
+                  <div>
+                    <div className="price-plan-model-form-header">
+                      <h5>Stair-step Pricing</h5>
+                      <p>Customer pays one price for all units based on total usage.</p>
                     </div>
-                  </div>
-                )}
-
-                {selectedPricingModel === 'tiered' && (
-                  <div className="price-plan-tiered-container">
-                    <div className="price-plan-form-group">
-                      <label>Tiered Pricing</label>
+                    <div className="price-plan-model-form-body">
                       {pricingFormData.tiered.tiers.map((tier, index) => (
                         <div key={index} className="price-plan-tier-row">
+                          
                           <input
                             type="number"
                             value={tier.start}
                             onChange={(e) => handleTierChange('tiered', index, 'start', e.target.value)}
                             placeholder="Start"
+                                                    style={{ flex: 1, maxWidth: '480px', marginLeft: '270px' }}
+
                           />
                           <input
                             type="number"
@@ -279,13 +244,14 @@ function CreatePricePlan() {
                             placeholder="Cost"
                           />
                           <button
+                            type="button"
                             onClick={() => handleRemoveTier('tiered', index)}
                             className="price-plan-delete-btn"
                           >
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                               <path d="M2 3.99992H14M12.6667 3.99992V13.3333C12.6667 13.9999 12 14.6666 11.3333 14.6666H4.66667C4 14.6666 3.33333 13.9999 3.33333 13.3333V3.99992M5.33333 3.99992V2.66659C5.33333 1.99992 6 1.33325 6.66667 1.33325H9.33333C10 1.33325 10.6667 1.99992 10.6667 2.66659V3.99992M6.66667 7.33325V11.3333M9.33333 7.33325V11.3333" stroke="#E34935" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
-                          </button>
+                            </button>
                         </div>
                       ))}
                       <button
@@ -298,51 +264,110 @@ function CreatePricePlan() {
                   </div>
                 )}
 
-                {selectedPricingModel === 'volume-based' && (
-                  <div className="price-plan-volume-container">
-                    <div className="price-plan-form-group">
-                      <label>Volume Tiers</label>
-                      {pricingFormData.volume.tiers.map((tier, index) => (
+                {selectedPricingModel === 'tiered' && (
+                  <div>
+                    <div className="price-plan-model-form-header">
+                      <h5>Tiered Pricing</h5>
+                      <p>Each tier’s rate applies only to units within that tier.</p>
+                    </div>
+                    <div className="price-plan-model-form-body">
+                      {pricingFormData.tiered.tiers.map((tier, index) => (
                         <div key={index} className="price-plan-tier-row">
+                          
                           <input
                             type="number"
                             value={tier.start}
-                            onChange={(e) => handleTierChange('volume', index, 'start', e.target.value)}
+                            onChange={(e) => handleTierChange('tiered', index, 'start', e.target.value)}
                             placeholder="Start"
+                                                    style={{ flex: 1, maxWidth: '480px', marginLeft: '270px' }}
+
                           />
                           <input
                             type="number"
                             value={tier.end}
-                            onChange={(e) => handleTierChange('volume', index, 'end', e.target.value)}
+                            onChange={(e) => handleTierChange('tiered', index, 'end', e.target.value)}
                             placeholder="End"
                           />
                           <input
                             type="number"
                             value={tier.cost}
-                            onChange={(e) => handleTierChange('volume', index, 'cost', e.target.value)}
+                            onChange={(e) => handleTierChange('tiered', index, 'cost', e.target.value)}
                             placeholder="Cost"
                           />
                           <button
-                            onClick={() => handleRemoveTier('volume', index)}
+                            type="button"
+                            onClick={() => handleRemoveTier('tiered', index)}
                             className="price-plan-delete-btn"
                           >
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                               <path d="M2 3.99992H14M12.6667 3.99992V13.3333C12.6667 13.9999 12 14.6666 11.3333 14.6666H4.66667C4 14.6666 3.33333 13.9999 3.33333 13.3333V3.99992M5.33333 3.99992V2.66659C5.33333 1.99992 6 1.33325 6.66667 1.33325H9.33333C10 1.33325 10.6667 1.99992 10.6667 2.66659V3.99992M6.66667 7.33325V11.3333M9.33333 7.33325V11.3333" stroke="#E34935" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
-                          </button>
+                            </button>
                         </div>
                       ))}
                       <button
-                        onClick={() => handleAddTier('volume')}
+                        onClick={() => handleAddTier('tiered')}
                         className="price-plan-add-tier-btn"
                       >
-                        + Add Volume Tier
+                        + Add Tier
                       </button>
                     </div>
                   </div>
                 )}
+                 {selectedPricingModel === 'volume-based' && (
+                  <div>
+                    <div className="price-plan-model-form-header">
+                      <h5>Volume-Based Pricing</h5>
+                      <p>Customer pays one price for all units based on total usage.</p>
+                    </div>
+                    <div className="price-plan-model-form-body">
+                      {pricingFormData.tiered.tiers.map((tier, index) => (
+                        <div key={index} className="price-plan-tier-row">
+                          
+                          <input
+                            type="number"
+                            value={tier.start}
+                            onChange={(e) => handleTierChange('tiered', index, 'start', e.target.value)}
+                            placeholder="Start"
+                                                    style={{ flex: 1, maxWidth: '480px', marginLeft: '270px' }}
+
+                          />
+                          <input
+                            type="number"
+                            value={tier.end}
+                            onChange={(e) => handleTierChange('tiered', index, 'end', e.target.value)}
+                            placeholder="End"
+                          />
+                          <input
+                            type="number"
+                            value={tier.cost}
+                            onChange={(e) => handleTierChange('tiered', index, 'cost', e.target.value)}
+                            placeholder="Cost"
+                          />
+                          <button
+                            type="button"
+                            onClick={() => handleRemoveTier('tiered', index)}
+                            className="price-plan-delete-btn"
+                          >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                              <path d="M2 3.99992H14M12.6667 3.99992V13.3333C12.6667 13.9999 12 14.6666 11.3333 14.6666H4.66667C4 14.6666 3.33333 13.9999 3.33333 13.3333V3.99992M5.33333 3.99992V2.66659C5.33333 1.99992 6 1.33325 6.66667 1.33325H9.33333C10 1.33325 10.6667 1.99992 10.6667 2.66659V3.99992M6.66667 7.33325V11.3333M9.33333 7.33325V11.3333" stroke="#E34935" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            </button>
+                        </div>
+                      ))}
+                      <button
+                        onClick={() => handleAddTier('tiered')}
+                        className="price-plan-add-tier-btn"
+                      >
+                        + Add Tier
+                      </button>
+                    </div>
+                  </div>
+                )}
+
+               
               </div>
-            </div>
+            // </div>
           )}
           {activeTab === 'extras' && (
             <div className="price-plan-extras-section">
@@ -357,7 +382,7 @@ function CreatePricePlan() {
           disabled={currentStep === 1}>
          <h6>Back</h6>
         </button>
-        <button type="button" className="custom-button next-button" onClick={handleNext}
+        <button type="button" className="custom-button aforo-button" onClick={handleNext}
           disabled={currentStep === 3}>
          <h6>Next</h6>
         </button>

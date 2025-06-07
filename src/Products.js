@@ -229,19 +229,19 @@ export default function Products() {
 
   const Notification = ({ message, type, productId }) => {
     const Icon = type === 'success' ? SuccessIcon : ErrorIcon;
-    const title = type === 'success' ? 'Product Deleted ' : 'Failed to delete the Product';
-    const details = type === 'success' 
-      ? 'The rate plan “Data Set Prod” was successfully deleted.' 
-      : 'Something went wrong while deleting “Data Set Prod”. Please try again.';
-    
     return (
       <div className={`notification ${type === 'error' ? 'error' : ''}`}>
         <div className="notification-icon">
           <Icon />
         </div>
         <div className="notification-text">
-          <h5>{title}</h5>
-          <p className="notification-details">{details}</p>
+          <h5>{type === 'success' ? 'Product Deleted ' : 'Failed to Delete Product'}</h5>
+          <p className="notification-details">
+            {type === 'success' 
+              ? `The product “Data Set Prod” was successfully deleted.` 
+              : `Failed to delete the product “Data Set Prod”. Please try again.`
+            }
+          </p>
         </div>
       </div>
     );

@@ -60,9 +60,6 @@
   min-width: 150px;
 }
 
-.price-plan-tab-active {
-  color: rgba(109, 136, 54, 1);
-}
 
 .price-plan-form-section {
   width: 100%;
@@ -108,8 +105,7 @@
   width: 100%;
   margin-top: 20px;
   max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left:- 30px;
   align-items: center;
 }
 
@@ -119,7 +115,7 @@
   margin-bottom: 15px;
   align-items: center;
   width: 20%;
-  background: rgba(245, 244, 244, 1);
+  /* background: rgba(245, 244, 244, 1); */
   padding: 1px;
   border-radius: 6px;
 }
@@ -128,7 +124,7 @@
   flex: 1;
   padding: 8px;
   border-radius: 6px;
-  background: white;
+  /* background: white; */
   border: 1px solid #ddd;
   font-size: 14px;
   color: rgba(37, 33, 31, 1);
@@ -164,13 +160,13 @@
 /* Add Tier Button Styles */
 .price-plan-add-tier-btn {
   color: var(--color-primary-800);
-  background: rgba(245, 244, 244, 1);
+  background: white;
   font-weight: 500;
   cursor: pointer;
   margin-top: 10px;
   font-size: 14px;
   width: 100%;
-  border: 1px solid rgba(245, 244, 244, 1);
+  border: 0px solid white;
   padding: 10px;
   border-radius: 6px;
   display: flex;
@@ -180,10 +176,7 @@
   transition: all 0.2s ease;
 }
 
-.price-plan-add-tier-btn:hover {
-  background: #f8f9fa;
-  color: #495057;
-}
+
 
 /* Pricing Model Details Container */
 .price-plan-model-details {
@@ -280,36 +273,113 @@
   flex-direction: column;
 }
 
-.price-plan-form-group label {
+
+/* .price-plan-form-group label {
   font-weight: 600;
   margin-bottom: 6px;
   color: #333;
+} */
+
+/* Pricing Model Form Container */
+.price-plan-model-form-container {
+  padding: 24px;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+  margin-left: 20px;
 }
 
-/* Responsive Support */
-@media (max-width: 768px) {
-  .price-plan-tier-row {
-    flex-direction: column;
-    gap: 10px;
-  }
+.price-plan-model-form-container.active {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.price-plan-model-form-header {
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+}
+
+.price-plan-model-form-header h5 {
+  color: #151312;
+  font-family: "DM Sans", sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+  margin-left: 250px;
+}
+
+.price-plan-model-form-header p {
+  color: #151312;
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  line-height: 24px;
+  margin-left: 250px;
+}
+
+
+.price-plan-model-form-body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.price-plan-model-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.price-plan-model-form-group label {
+  color: #151312;
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+/* .price-plan-model-form-input {
+  width: 50%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: rgba(245, 244, 244, 1);
+  font-size: 14px;
+  color: #151312;
+  transition: all 0.2s ease;
+} */
+
+.price-plan-model-form-input:focus {
+  outline: none;
+  border-color: #7b9d3d;
+  background: white;
+}
+
+/* .price-plan-model-form-select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: rgba(245, 244, 244, 1);
+  font-size: 14px;
+  color: #151312;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23666'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+  transition: all 0.2s ease;
+} */
+
+.price-plan-model-form-select:focus {
+  outline: none;
+  border-color: #7b9d3d;
+  background: white;
+}
+
+
+
   
-  .price-plan-tier-row input {
-    width: 100%;
-  }
-  
-  .price-plan-delete-btn {
-    width: 100%;
-    justify-content: center;
-  }
-}
-
-@media (max-width: 600px) {
-  .price-plan-container {
-    padding: 16px;
-  }
-
-  .price-plan-tier-row {
-    flex-direction: column;
-    align-items: stretch;
-  }
-}
